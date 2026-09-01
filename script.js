@@ -9,73 +9,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =================================================
        15 FONDOS
+       CARPETA EN GITHUB: /Fondos/
     ================================================= */
 
-const fondos = [
-    "Fondos/Fondo1.jfif",
-    "Fondos/Fondo2.jfif",
-    "Fondos/Fondo3.jfif",
-    "Fondos/Fondo4.png",
-    "Fondos/Fondo5.png",
-    "Fondos/Fondo6.jfif",
-    "Fondos/Fondo7.jfif",
-    "Fondos/Fondo8.jfif",
-    "Fondos/Fondo9.jfif",
-    "Fondos/Fondo10.jfif",
-    "Fondos/Fondo11.jfif",
-    "Fondos/Fondo12.jpg",
-    "Fondos/Fondo13.jfif",
-    "Fondos/Fondo14.jfif",
-    "Fondos/Fondo15.jfif"
-];
-
+    const fondos = [
+        "Fondos/Fondo1.jfif",
+        "Fondos/Fondo2.jfif",
+        "Fondos/Fondo3.jfif",
+        "Fondos/Fondo4.png",
+        "Fondos/Fondo5.png",
+        "Fondos/Fondo6.jfif",
+        "Fondos/Fondo7.jfif",
+        "Fondos/Fondo8.jfif",
+        "Fondos/Fondo9.jfif",
+        "Fondos/Fondo10.jfif",
+        "Fondos/Fondo11.jfif",
+        "Fondos/Fondo12.jpg",
+        "Fondos/Fondo13.jfif",
+        "Fondos/Fondo14.jfif",
+        "Fondos/Fondo15.jfif"
+    ];
 
     const fondoPrincipal =
         document.getElementById("fondoPrincipal");
 
+    if (fondoPrincipal) {
 
-    let fondoAnterior =
-        Number(localStorage.getItem("ultimoFondo"));
+        let fondoAnterior =
+            Number(localStorage.getItem("ultimoFondo"));
 
+        let fondoNuevo =
+            Math.floor(Math.random() * fondos.length);
 
-    let fondoNuevo =
-        Math.floor(
-            Math.random() * fondos.length
+        if (
+            fondos.length > 1 &&
+            fondoNuevo === fondoAnterior
+        ) {
+            fondoNuevo =
+                (fondoNuevo + 1) % fondos.length;
+        }
+
+        localStorage.setItem(
+            "ultimoFondo",
+            String(fondoNuevo)
         );
 
-
-    if (
-        fondos.length > 1 &&
-        fondoNuevo === fondoAnterior
-    ) {
-        fondoNuevo =
-            (fondoNuevo + 1) % fondos.length;
+        fondoPrincipal.style.backgroundImage =
+            'url("' + fondos[fondoNuevo] + '")';
     }
-
-
-    localStorage.setItem(
-        "ultimoFondo",
-        String(fondoNuevo)
-    );
-
-
-    fondoPrincipal.style.backgroundImage =
-        'url("' + fondos[fondoNuevo] + '")';
 
 
     /* =================================================
        CONTADOR
-       RELACIÓN: 17 NOVIEMBRE 2025
+       INICIO: 17 NOVIEMBRE 2025
     ================================================= */
 
     const contador =
         document.getElementById("diasJuntos");
 
-
     function actualizarContador() {
 
-        const ahora = new Date();
+        if (!contador) {
+            return;
+        }
 
+        const ahora = new Date();
 
         const hoyUTC =
             Date.UTC(
@@ -84,7 +82,6 @@ const fondos = [
                 ahora.getDate()
             );
 
-
         const inicioUTC =
             Date.UTC(
                 2025,
@@ -92,29 +89,24 @@ const fondos = [
                 17
             );
 
-
         const dias =
             Math.floor(
-                (hoyUTC - inicioUTC) /
-                UN_DIA
+                (hoyUTC - inicioUTC) / UN_DIA
             );
 
-
         if (dias < 0) {
+
             contador.textContent =
                 "Aún no había comenzado ❤️";
 
             return;
         }
 
-
         contador.textContent =
             dias + " días juntos ❤️";
     }
 
-
     actualizarContador();
-
 
     setInterval(
         actualizarContador,
@@ -229,10 +221,8 @@ const fondos = [
         "Hoy también elegimos seguir compartiendo nuestro tiempo."
     ];
 
-
     const fraseTexto =
         document.getElementById("fraseTexto");
-
 
     function obtenerClaveDia() {
 
@@ -247,7 +237,6 @@ const fondos = [
         );
     }
 
-
     function obtenerIndiceFraseDiaria() {
 
         const hoy = new Date();
@@ -259,16 +248,13 @@ const fondos = [
                 0
             );
 
-
         const diferencia =
             hoy - inicioAnio;
-
 
         const diaDelAnio =
             Math.floor(
                 diferencia / UN_DIA
             );
-
 
         return (
             diaDelAnio +
@@ -276,24 +262,24 @@ const fondos = [
         ) % frases.length;
     }
 
-
     function mostrarFraseDiaria() {
+
+        if (!fraseTexto) {
+            return;
+        }
 
         const claveHoy =
             obtenerClaveDia();
-
 
         const fechaGuardada =
             localStorage.getItem(
                 "fechaFraseManual"
             );
 
-
         const fraseGuardada =
             localStorage.getItem(
                 "fraseManual"
             );
-
 
         if (
             fechaGuardada === claveHoy &&
@@ -306,27 +292,25 @@ const fondos = [
             return;
         }
 
-
         const indice =
             obtenerIndiceFraseDiaria();
-
 
         fraseTexto.textContent =
             '"' + frases[indice] + '"';
     }
 
-
     mostrarFraseDiaria();
 
+    const cambiarFrase =
+        document.getElementById("cambiarFrase");
 
-    document
-        .getElementById("cambiarFrase")
-        .addEventListener(
+    if (cambiarFrase) {
+
+        cambiarFrase.addEventListener(
             "click",
             function () {
 
                 let nuevaFrase;
-
 
                 do {
 
@@ -345,23 +329,21 @@ const fondos = [
                     )
                 );
 
-
                 localStorage.setItem(
                     "fechaFraseManual",
                     obtenerClaveDia()
                 );
-
 
                 localStorage.setItem(
                     "fraseManual",
                     nuevaFrase
                 );
 
-
                 fraseTexto.textContent =
                     '"' + nuevaFrase + '"';
             }
         );
+    }
 
 
     /* =================================================
@@ -488,14 +470,11 @@ const fondos = [
         ]
     };
 
-
     let ultimoJuego = "";
-
 
     function obtenerTodosLosJuegos() {
 
         let todos = [];
-
 
         Object.values(
             juegosRoblox
@@ -507,25 +486,36 @@ const fondos = [
             }
         );
 
-
         return [...new Set(todos)];
     }
 
+    const elegirJuego =
+        document.getElementById("elegirJuego");
 
-    document
-        .getElementById("elegirJuego")
-        .addEventListener(
+    if (elegirJuego) {
+
+        elegirJuego.addEventListener(
             "click",
             function () {
 
-                const categoria =
+                const selector =
                     document.getElementById(
                         "categoriaRoblox"
-                    ).value;
+                    );
 
+                const resultado =
+                    document.getElementById(
+                        "resultadoJuego"
+                    );
+
+                if (!selector || !resultado) {
+                    return;
+                }
+
+                const categoria =
+                    selector.value;
 
                 let opciones;
-
 
                 if (categoria === "todos") {
 
@@ -538,9 +528,11 @@ const fondos = [
                         juegosRoblox[categoria];
                 }
 
+                if (!opciones || opciones.length === 0) {
+                    return;
+                }
 
                 let juego;
-
 
                 do {
 
@@ -557,18 +549,9 @@ const fondos = [
                     juego === ultimoJuego
                 );
 
-
                 ultimoJuego = juego;
 
-
-                const resultado =
-                    document.getElementById(
-                        "resultadoJuego"
-                    );
-
-
                 resultado.innerHTML = "";
-
 
                 const emoji =
                     document.createElement("span");
@@ -579,20 +562,17 @@ const fondos = [
                 emoji.textContent =
                     "🎮";
 
-
                 const titulo =
                     document.createElement("h3");
 
                 titulo.textContent =
                     juego;
 
-
                 const texto =
                     document.createElement("p");
 
                 texto.textContent =
                     "Este es el elegido. ¿Le damos?";
-
 
                 const boton =
                     document.createElement("button");
@@ -603,14 +583,12 @@ const fondos = [
                 boton.textContent =
                     "🔎 Buscar en Roblox";
 
-
                 boton.addEventListener(
                     "click",
                     function () {
 
                         const busqueda =
                             encodeURIComponent(juego);
-
 
                         window.open(
                             "https://www.roblox.com/discover/?Keyword=" +
@@ -621,13 +599,13 @@ const fondos = [
                     }
                 );
 
-
                 resultado.appendChild(emoji);
                 resultado.appendChild(titulo);
                 resultado.appendChild(texto);
                 resultado.appendChild(boton);
             }
         );
+    }
 
 
     /* =================================================
@@ -694,7 +672,7 @@ const fondos = [
 
 
     /* =================================================
-       25 PREGUNTAS POR CATEGORÍA
+       PREGUNTAS POR CATEGORÍA
     ================================================= */
 
     const preguntasCategorias = {
@@ -732,7 +710,6 @@ const fondos = [
             "¿Qué es lo que más disfrutas de ser nosotros?"
         ],
 
-
         graciosas: [
 
             "¿Quién sobreviviría menos en un apocalipsis?",
@@ -765,7 +742,6 @@ const fondos = [
             "¿Quién sería más dramático por una tontería?",
             "¿Quién ganaría una competición de hacer absolutamente nada?"
         ],
-
 
         profundas: [
 
@@ -800,7 +776,6 @@ const fondos = [
             "¿Qué significa para ti construir algo juntos?"
         ],
 
-
         futuro: [
 
             "¿Qué viaje te gustaría hacer conmigo?",
@@ -833,7 +808,6 @@ const fondos = [
             "¿Qué sueño pequeño podríamos cumplir juntos?",
             "¿Qué recuerdo futuro te gustaría mirar algún día y decir qué buen día fue?"
         ],
-
 
         random: [
 
@@ -869,27 +843,31 @@ const fondos = [
         ]
     };
 
-
     const preguntaTexto =
         document.getElementById("preguntaTexto");
-
 
     const categoriaPreguntaActual =
         document.getElementById(
             "categoriaPreguntaActual"
         );
 
-
     let ultimaPregunta = "";
-
 
     function elegirPregunta(
         lista,
         nombreCategoria
     ) {
 
-        let pregunta;
+        if (
+            !preguntaTexto ||
+            !categoriaPreguntaActual ||
+            !lista ||
+            lista.length === 0
+        ) {
+            return;
+        }
 
+        let pregunta;
 
         do {
 
@@ -906,23 +884,24 @@ const fondos = [
             pregunta === ultimaPregunta
         );
 
-
         ultimaPregunta =
             pregunta;
 
-
         preguntaTexto.textContent =
             pregunta;
-
 
         categoriaPreguntaActual.textContent =
             nombreCategoria;
     }
 
+    const preguntaGeneral =
+        document.getElementById(
+            "preguntaGeneral"
+        );
 
-    document
-        .getElementById("preguntaGeneral")
-        .addEventListener(
+    if (preguntaGeneral) {
+
+        preguntaGeneral.addEventListener(
             "click",
             function () {
 
@@ -932,7 +911,7 @@ const fondos = [
                 );
             }
         );
-
+    }
 
     document
         .querySelectorAll("[data-pregunta]")
@@ -946,7 +925,6 @@ const fondos = [
                         const categoria =
                             boton.dataset.pregunta;
 
-
                         const nombres = {
                             tiernas: "❤️ TIERNAS",
                             graciosas: "😂 GRACIOSAS",
@@ -954,7 +932,6 @@ const fondos = [
                             futuro: "🌎 FUTURO",
                             random: "🎲 RANDOM"
                         };
-
 
                         elegirPregunta(
                             preguntasCategorias[
@@ -1035,18 +1012,20 @@ const fondos = [
         "🎵 Escuchar música mientras hablamos"
     ];
 
-
     let ultimaActividad = "";
 
+    const elegirActividad =
+        document.getElementById(
+            "elegirActividad"
+        );
 
-    document
-        .getElementById("elegirActividad")
-        .addEventListener(
+    if (elegirActividad) {
+
+        elegirActividad.addEventListener(
             "click",
             function () {
 
                 let actividad;
-
 
                 do {
 
@@ -1063,41 +1042,45 @@ const fondos = [
                     actividad === ultimaActividad
                 );
 
-
                 ultimaActividad =
                     actividad;
 
+                const actividadTexto =
+                    document.getElementById(
+                        "actividadTexto"
+                    );
 
-                document.getElementById(
-                    "actividadTexto"
-                ).textContent =
-                    actividad;
+                if (actividadTexto) {
+                    actividadTexto.textContent =
+                        actividad;
+                }
             }
         );
+    }
 
 
     /* =================================================
-       3 CANCIONES AMBIENTALES
+       MÚSICA AMBIENTAL
+
+       CARPETA EN GITHUB:
+       /fondo/
     ================================================= */
 
     const musicaAmbiente = [
 
         {
             titulo: "Ambiente 1",
-            archivo:
-                "musica/fondo/ambiente1.mp3"
+            archivo: "fondo/ambiente1.mp3"
         },
 
         {
             titulo: "Ambiente 2",
-            archivo:
-                "musica/fondo/ambiente2.mp3"
+            archivo: "fondo/ambiente2.mp3"
         },
 
         {
             titulo: "Ambiente 3",
-            archivo:
-                "musica/fondo/ambiente3.mp3"
+            archivo: "fondo/ambiente3.mp3"
         }
 
     ];
@@ -1106,16 +1089,17 @@ const fondos = [
     /* =================================================
        PLAYLIST
 
-       LOS ARCHIVOS SON:
+       CARPETA EN GITHUB:
+       /Playlist/
+
+       ARCHIVOS:
        1.mp3
        2.mp3
-       3.mp3
        ...
        30.mp3
     ================================================= */
 
     const playlist = [];
-
 
     for (
         let numero = 1;
@@ -1124,80 +1108,73 @@ const fondos = [
     ) {
 
         playlist.push({
+
             titulo: String(numero),
 
             archivo:
-                "musica/playlist/" +
+                "Playlist/" +
                 numero +
                 ".mp3"
+
         });
     }
 
 
     /* =================================================
-       AUDIO
+       SISTEMA DE AUDIO
     ================================================= */
 
     const audioAmbiente =
         new Audio();
 
-
     const audioPlaylist =
         new Audio();
 
+    audioAmbiente.preload = "metadata";
+    audioPlaylist.preload = "metadata";
 
     audioAmbiente.volume = 0.7;
     audioPlaylist.volume = 0.7;
 
-
     let indiceAmbiente = 0;
-
     let indicePlaylist = 0;
 
     let modoMusica = "ambiente";
-
 
     const tituloCancion =
         document.getElementById(
             "tituloCancion"
         );
 
-
     const estadoMusica =
         document.getElementById(
             "estadoMusica"
         );
-
 
     const numeroCancion =
         document.getElementById(
             "numeroCancion"
         );
 
-
     const botonPlay =
         document.getElementById(
             "playCancion"
         );
-
 
     const progreso =
         document.getElementById(
             "progresoMusica"
         );
 
-
     const volumen =
         document.getElementById(
             "volumenMusica"
         );
 
-
     const tiempoActual =
         document.getElementById(
             "tiempoActual"
         );
-
 
     const duracionMusica =
         document.getElementById(
@@ -1215,18 +1192,15 @@ const fondos = [
             return "0:00";
         }
 
-
         const minutos =
             Math.floor(
                 segundos / 60
             );
 
-
         const resto =
             Math.floor(
                 segundos % 60
             );
-
 
         return (
             minutos +
@@ -1240,7 +1214,7 @@ const fondos = [
 
 
     /* =================================================
-       OBTENER AUDIO ACTUAL
+       AUDIO ACTUAL
     ================================================= */
 
     function obtenerAudioActual() {
@@ -1254,14 +1228,17 @@ const fondos = [
 
 
     /* =================================================
-       BOTÓN PLAY
+       ACTUALIZAR BOTÓN PLAY
     ================================================= */
 
     function actualizarBotonPlay() {
 
+        if (!botonPlay) {
+            return;
+        }
+
         const audio =
             obtenerAudioActual();
-
 
         if (audio.paused) {
             botonPlay.textContent = "▶";
@@ -1269,293 +1246,6 @@ const fondos = [
             botonPlay.textContent = "⏸";
         }
     }
-
-
-    /* =================================================
-       AMBIENTE
-    ================================================= */
-
-    function cargarAmbiente(reproducir) {
-
-        modoMusica = "ambiente";
-
-
-        /*
-           IMPORTANTÍSIMO:
-           la playlist se apaga antes de
-           reproducir ambiente.
-        */
-        audioPlaylist.pause();
-
-
-        const cancion =
-            musicaAmbiente[
-                indiceAmbiente
-            ];
-
-
-        audioAmbiente.src =
-            cancion.archivo;
-
-
-        tituloCancion.textContent =
-            cancion.titulo;
-
-
-        estadoMusica.textContent =
-            "🌿 Música de fondo";
-
-
-        numeroCancion.textContent =
-            "Ambiente " +
-            (indiceAmbiente + 1) +
-            " / " +
-            musicaAmbiente.length;
-
-
-        progreso.value = 0;
-
-        tiempoActual.textContent =
-            "0:00";
-
-        duracionMusica.textContent =
-            "0:00";
-
-
-        marcarCancionActiva();
-
-
-        if (reproducir) {
-
-            audioAmbiente
-                .play()
-                .catch(
-                    function () {
-                        actualizarBotonPlay();
-                    }
-                );
-        }
-
-
-        actualizarBotonPlay();
-    }
-
-
-    function siguienteAmbiente() {
-
-        indiceAmbiente++;
-
-
-        if (
-            indiceAmbiente >=
-            musicaAmbiente.length
-        ) {
-            indiceAmbiente = 0;
-        }
-
-
-        cargarAmbiente(true);
-    }
-
-
-    function anteriorAmbiente() {
-
-        indiceAmbiente--;
-
-
-        if (indiceAmbiente < 0) {
-            indiceAmbiente =
-                musicaAmbiente.length - 1;
-        }
-
-
-        cargarAmbiente(true);
-    }
-
-
-    audioAmbiente.addEventListener(
-        "ended",
-        siguienteAmbiente
-    );
-
-
-    /* =================================================
-       PLAYLIST
-    ================================================= */
-
-    function reproducirPlaylist(indice) {
-
-        modoMusica = "playlist";
-
-
-        indicePlaylist = indice;
-
-
-        /*
-           IMPORTANTÍSIMO:
-           la música ambiental se apaga
-           en cuanto elegimos una canción.
-        */
-        audioAmbiente.pause();
-
-
-        const cancion =
-            playlist[indicePlaylist];
-
-
-        audioPlaylist.src =
-            cancion.archivo;
-
-
-        tituloCancion.textContent =
-            cancion.titulo;
-
-
-        estadoMusica.textContent =
-            "🎧 Playlist";
-
-
-        numeroCancion.textContent =
-            (indicePlaylist + 1) +
-            " / " +
-            playlist.length;
-
-
-        progreso.value = 0;
-
-        tiempoActual.textContent =
-            "0:00";
-
-        duracionMusica.textContent =
-            "0:00";
-
-
-        marcarCancionActiva();
-
-
-        audioPlaylist
-            .play()
-            .catch(
-                function () {
-                    actualizarBotonPlay();
-                }
-            );
-
-
-        actualizarBotonPlay();
-    }
-
-
-    function siguientePlaylist() {
-
-        indicePlaylist++;
-
-
-        if (
-            indicePlaylist >=
-            playlist.length
-        ) {
-            indicePlaylist = 0;
-        }
-
-
-        reproducirPlaylist(
-            indicePlaylist
-        );
-    }
-
-
-    function anteriorPlaylist() {
-
-        indicePlaylist--;
-
-
-        if (indicePlaylist < 0) {
-            indicePlaylist =
-                playlist.length - 1;
-        }
-
-
-        reproducirPlaylist(
-            indicePlaylist
-        );
-    }
-
-
-    audioPlaylist.addEventListener(
-        "ended",
-        siguientePlaylist
-    );
-
-
-    /* =================================================
-       CREAR LOS 30 BOTONES AUTOMÁTICAMENTE
-    ================================================= */
-
-    const listaCanciones =
-        document.getElementById(
-            "listaCanciones"
-        );
-
-
-    playlist.forEach(
-        function (cancion, indice) {
-
-            const boton =
-                document.createElement(
-                    "button"
-                );
-
-
-            boton.className =
-                "cancion-item";
-
-
-            const nombre =
-                document.createElement(
-                    "span"
-                );
-
-
-            nombre.textContent =
-                "♫ " + cancion.titulo;
-
-
-            const numero =
-                document.createElement(
-                    "small"
-                );
-
-
-            numero.textContent =
-                String(
-                    indice + 1
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            boton.appendChild(nombre);
-            boton.appendChild(numero);
-
-
-            boton.addEventListener(
-                "click",
-                function () {
-
-                    reproducirPlaylist(
-                        indice
-                    );
-                }
-            );
-
-
-            listaCanciones.appendChild(
-                boton
-            );
-        }
-    );
 
 
     /* =================================================
@@ -1585,63 +1275,360 @@ const fondos = [
 
 
     /* =================================================
+       CARGAR MÚSICA AMBIENTAL
+    ================================================= */
+
+    function cargarAmbiente(reproducir) {
+
+        modoMusica = "ambiente";
+
+        audioPlaylist.pause();
+
+        const cancion =
+            musicaAmbiente[
+                indiceAmbiente
+            ];
+
+        audioAmbiente.src =
+            cancion.archivo;
+
+        if (tituloCancion) {
+            tituloCancion.textContent =
+                cancion.titulo;
+        }
+
+        if (estadoMusica) {
+            estadoMusica.textContent =
+                "🌿 Música de fondo";
+        }
+
+        if (numeroCancion) {
+            numeroCancion.textContent =
+                "Ambiente " +
+                (indiceAmbiente + 1) +
+                " / " +
+                musicaAmbiente.length;
+        }
+
+        if (progreso) {
+            progreso.value = 0;
+        }
+
+        if (tiempoActual) {
+            tiempoActual.textContent =
+                "0:00";
+        }
+
+        if (duracionMusica) {
+            duracionMusica.textContent =
+                "0:00";
+        }
+
+        marcarCancionActiva();
+
+        if (reproducir) {
+
+            audioAmbiente
+                .play()
+                .catch(
+                    function (error) {
+
+                        console.log(
+                            "El navegador bloqueó o no pudo cargar el audio ambiental:",
+                            error
+                        );
+
+                        actualizarBotonPlay();
+                    }
+                );
+        }
+
+        actualizarBotonPlay();
+    }
+
+
+    function siguienteAmbiente() {
+
+        indiceAmbiente++;
+
+        if (
+            indiceAmbiente >=
+            musicaAmbiente.length
+        ) {
+            indiceAmbiente = 0;
+        }
+
+        cargarAmbiente(true);
+    }
+
+
+    function anteriorAmbiente() {
+
+        indiceAmbiente--;
+
+        if (indiceAmbiente < 0) {
+
+            indiceAmbiente =
+                musicaAmbiente.length - 1;
+        }
+
+        cargarAmbiente(true);
+    }
+
+
+    audioAmbiente.addEventListener(
+        "ended",
+        siguienteAmbiente
+    );
+
+
+    /* =================================================
+       REPRODUCIR PLAYLIST
+    ================================================= */
+
+    function reproducirPlaylist(indice) {
+
+        if (
+            indice < 0 ||
+            indice >= playlist.length
+        ) {
+            return;
+        }
+
+        modoMusica = "playlist";
+
+        indicePlaylist = indice;
+
+        /*
+           Al reproducir una canción de la playlist,
+           apagamos completamente el ambiente.
+        */
+        audioAmbiente.pause();
+
+        const cancion =
+            playlist[indicePlaylist];
+
+        audioPlaylist.src =
+            cancion.archivo;
+
+        if (tituloCancion) {
+            tituloCancion.textContent =
+                cancion.titulo;
+        }
+
+        if (estadoMusica) {
+            estadoMusica.textContent =
+                "🎧 Playlist";
+        }
+
+        if (numeroCancion) {
+            numeroCancion.textContent =
+                (indicePlaylist + 1) +
+                " / " +
+                playlist.length;
+        }
+
+        if (progreso) {
+            progreso.value = 0;
+        }
+
+        if (tiempoActual) {
+            tiempoActual.textContent =
+                "0:00";
+        }
+
+        if (duracionMusica) {
+            duracionMusica.textContent =
+                "0:00";
+        }
+
+        marcarCancionActiva();
+
+        audioPlaylist
+            .play()
+            .catch(
+                function (error) {
+
+                    console.log(
+                        "No se pudo reproducir la canción:",
+                        cancion.archivo,
+                        error
+                    );
+
+                    actualizarBotonPlay();
+                }
+            );
+
+        actualizarBotonPlay();
+    }
+
+
+    function siguientePlaylist() {
+
+        indicePlaylist++;
+
+        if (
+            indicePlaylist >=
+            playlist.length
+        ) {
+            indicePlaylist = 0;
+        }
+
+        reproducirPlaylist(
+            indicePlaylist
+        );
+    }
+
+
+    function anteriorPlaylist() {
+
+        indicePlaylist--;
+
+        if (indicePlaylist < 0) {
+
+            indicePlaylist =
+                playlist.length - 1;
+        }
+
+        reproducirPlaylist(
+            indicePlaylist
+        );
+    }
+
+
+    audioPlaylist.addEventListener(
+        "ended",
+        siguientePlaylist
+    );
+
+
+    /* =================================================
+       CREAR LAS 30 CANCIONES
+    ================================================= */
+
+    const listaCanciones =
+        document.getElementById(
+            "listaCanciones"
+        );
+
+    if (listaCanciones) {
+
+        listaCanciones.innerHTML = "";
+
+        playlist.forEach(
+            function (cancion, indice) {
+
+                const boton =
+                    document.createElement(
+                        "button"
+                    );
+
+                boton.className =
+                    "cancion-item";
+
+                const nombre =
+                    document.createElement(
+                        "span"
+                    );
+
+                nombre.textContent =
+                    "♫ " + cancion.titulo;
+
+                const numero =
+                    document.createElement(
+                        "small"
+                    );
+
+                numero.textContent =
+                    String(
+                        indice + 1
+                    ).padStart(
+                        2,
+                        "0"
+                    );
+
+                boton.appendChild(nombre);
+                boton.appendChild(numero);
+
+                boton.addEventListener(
+                    "click",
+                    function () {
+
+                        reproducirPlaylist(
+                            indice
+                        );
+                    }
+                );
+
+                listaCanciones.appendChild(
+                    boton
+                );
+            }
+        );
+    }
+
+
+    /* =================================================
        PLAY / PAUSE
     ================================================= */
 
-    botonPlay.addEventListener(
-        "click",
-        function () {
+    if (botonPlay) {
 
-            const audio =
-                obtenerAudioActual();
+        botonPlay.addEventListener(
+            "click",
+            function () {
 
+                const audio =
+                    obtenerAudioActual();
 
-            if (!audio.src) {
+                if (!audio.src) {
 
-                cargarAmbiente(true);
+                    cargarAmbiente(true);
 
-                return;
+                    return;
+                }
+
+                if (audio.paused) {
+
+                    audio
+                        .play()
+                        .catch(
+                            function (error) {
+
+                                console.log(
+                                    "No se pudo reproducir:",
+                                    error
+                                );
+
+                                actualizarBotonPlay();
+                            }
+                        );
+
+                } else {
+
+                    audio.pause();
+                }
+
+                actualizarBotonPlay();
             }
-
-
-            if (audio.paused) {
-
-                audio
-                    .play()
-                    .catch(
-                        function () {
-                            actualizarBotonPlay();
-                        }
-                    );
-
-            } else {
-
-                audio.pause();
-            }
-
-
-            actualizarBotonPlay();
-        }
-    );
+        );
+    }
 
 
     audioAmbiente.addEventListener(
         "play",
         actualizarBotonPlay
     );
-
 
     audioAmbiente.addEventListener(
         "pause",
         actualizarBotonPlay
     );
 
-
     audioPlaylist.addEventListener(
         "play",
         actualizarBotonPlay
     );
-
 
     audioPlaylist.addEventListener(
         "pause",
@@ -1653,11 +1640,14 @@ const fondos = [
        SIGUIENTE
     ================================================= */
 
-    document
-        .getElementById(
+    const siguienteCancion =
+        document.getElementById(
             "siguienteCancion"
-        )
-        .addEventListener(
+        );
+
+    if (siguienteCancion) {
+
+        siguienteCancion.addEventListener(
             "click",
             function () {
 
@@ -1674,17 +1664,21 @@ const fondos = [
                 }
             }
         );
+    }
 
 
     /* =================================================
        ANTERIOR
     ================================================= */
 
-    document
-        .getElementById(
+    const anteriorCancion =
+        document.getElementById(
             "anteriorCancion"
-        )
-        .addEventListener(
+        );
+
+    if (anteriorCancion) {
+
+        anteriorCancion.addEventListener(
             "click",
             function () {
 
@@ -1701,17 +1695,21 @@ const fondos = [
                 }
             }
         );
+    }
 
 
     /* =================================================
-       VOLVER AL AMBIENTE
+       VOLVER A MÚSICA AMBIENTAL
     ================================================= */
 
-    document
-        .getElementById(
+    const volverAmbiente =
+        document.getElementById(
             "volverAmbiente"
-        )
-        .addEventListener(
+        );
+
+    if (volverAmbiente) {
+
+        volverAmbiente.addEventListener(
             "click",
             function () {
 
@@ -1720,6 +1718,7 @@ const fondos = [
                 cargarAmbiente(true);
             }
         );
+    }
 
 
     /* =================================================
@@ -1731,7 +1730,6 @@ const fondos = [
         const audio =
             obtenerAudioActual();
 
-
         if (
             Number.isFinite(
                 audio.duration
@@ -1739,18 +1737,84 @@ const fondos = [
             audio.duration > 0
         ) {
 
-            progreso.value =
-                (
-                    audio.currentTime /
-                    audio.duration
-                ) * 100;
+            if (progreso) {
+
+                progreso.value =
+                    (
+                        audio.currentTime /
+                        audio.duration
+                    ) * 100;
+            }
+
+            if (tiempoActual) {
+
+                tiempoActual.textContent =
+                    formatoTiempo(
+                        audio.currentTime
+                    );
+            }
+
+            if (duracionMusica) {
+
+                duracionMusica.textContent =
+                    formatoTiempo(
+                        audio.duration
+                    );
+            }
+        }
+    }
 
 
-            tiempoActual.textContent =
-                formatoTiempo(
-                    audio.currentTime
-                );
+    audioAmbiente.addEventListener(
+        "timeupdate",
+        actualizarProgreso
+    );
 
+    audioPlaylist.addEventListener(
+        "timeupdate",
+        actualizarProgreso
+    );
+
+
+    if (progreso) {
+
+        progreso.addEventListener(
+            "input",
+            function () {
+
+                const audio =
+                    obtenerAudioActual();
+
+                if (
+                    Number.isFinite(
+                        audio.duration
+                    ) &&
+                    audio.duration > 0
+                ) {
+
+                    audio.currentTime =
+                        (
+                            Number(
+                                progreso.value
+                            ) / 100
+                        ) *
+                        audio.duration;
+                }
+            }
+        );
+    }
+
+
+    /* =================================================
+       DURACIÓN
+    ================================================= */
+
+    function actualizarDuracion() {
+
+        const audio =
+            obtenerAudioActual();
+
+        if (duracionMusica) {
 
             duracionMusica.textContent =
                 formatoTiempo(
@@ -1761,66 +1825,9 @@ const fondos = [
 
 
     audioAmbiente.addEventListener(
-        "timeupdate",
-        actualizarProgreso
-    );
-
-
-    audioPlaylist.addEventListener(
-        "timeupdate",
-        actualizarProgreso
-    );
-
-
-    progreso.addEventListener(
-        "input",
-        function () {
-
-            const audio =
-                obtenerAudioActual();
-
-
-            if (
-                Number.isFinite(
-                    audio.duration
-                ) &&
-                audio.duration > 0
-            ) {
-
-                audio.currentTime =
-                    (
-                        Number(
-                            progreso.value
-                        ) / 100
-                    ) *
-                    audio.duration;
-            }
-        }
-    );
-
-
-    /* =================================================
-       CUANDO SE CARGA LA DURACIÓN
-    ================================================= */
-
-    function actualizarDuracion() {
-
-        const audio =
-            obtenerAudioActual();
-
-
-        duracionMusica.textContent =
-            formatoTiempo(
-                audio.duration
-            );
-    }
-
-
-    audioAmbiente.addEventListener(
         "loadedmetadata",
         actualizarDuracion
     );
-
 
     audioPlaylist.addEventListener(
         "loadedmetadata",
@@ -1832,22 +1839,52 @@ const fondos = [
        VOLUMEN
     ================================================= */
 
-    volumen.addEventListener(
-        "input",
+    if (volumen) {
+
+        volumen.addEventListener(
+            "input",
+            function () {
+
+                const nivel =
+                    Number(
+                        volumen.value
+                    );
+
+                audioAmbiente.volume =
+                    nivel;
+
+                audioPlaylist.volume =
+                    nivel;
+            }
+        );
+    }
+
+
+    /* =================================================
+       ERRORES DE AUDIO
+       Útil para detectar archivos faltantes en GitHub.
+    ================================================= */
+
+    audioAmbiente.addEventListener(
+        "error",
         function () {
 
-            const nivel =
-                Number(
-                    volumen.value
-                );
+            console.error(
+                "No se encontró el audio ambiental:",
+                audioAmbiente.src
+            );
+        }
+    );
 
 
-            audioAmbiente.volume =
-                nivel;
+    audioPlaylist.addEventListener(
+        "error",
+        function () {
 
-
-            audioPlaylist.volume =
-                nivel;
+            console.error(
+                "No se encontró la canción:",
+                audioPlaylist.src
+            );
         }
     );
 
@@ -1855,26 +1892,33 @@ const fondos = [
     /* =================================================
        PANTALLA DE ENTRADA
 
-       El clic permite que el navegador
-       autorice el audio.
+       El usuario pulsa Entrar y eso permite
+       que el navegador reproduzca audio.
     ================================================= */
 
-    document
-        .getElementById(
+    const botonEntrar =
+        document.getElementById(
             "botonEntrar"
-        )
-        .addEventListener(
+        );
+
+    if (botonEntrar) {
+
+        botonEntrar.addEventListener(
             "click",
             function () {
 
-                document
-                    .getElementById(
+                const pantallaEntrada =
+                    document.getElementById(
                         "pantallaEntrada"
-                    )
-                    .classList.add(
-                        "oculta"
                     );
 
+                if (pantallaEntrada) {
+
+                    pantallaEntrada
+                        .classList.add(
+                            "oculta"
+                        );
+                }
 
                 indiceAmbiente =
                     Math.floor(
@@ -1882,9 +1926,9 @@ const fondos = [
                         musicaAmbiente.length
                     );
 
-
                 cargarAmbiente(true);
             }
         );
+    }
 
 });
