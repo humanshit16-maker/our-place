@@ -54,6 +54,9 @@ body {
 
     overflow-x: hidden;
 
+    position: relative;
+    isolation: isolate;
+
     font-family:
         "Trebuchet MS",
         Arial,
@@ -63,8 +66,12 @@ body {
 
     background: #111;
 }
-
-
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
 button,
 select,
 input {
@@ -149,7 +156,7 @@ input {
 
     inset: 0;
 
-    z-index: -4;
+    z-index: -1;
 
     overflow: hidden;
 
