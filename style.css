@@ -72,7 +72,7 @@ footer {
     position: relative;
     z-index: 3;
 }
-}
+
 button,
 select,
 input {
@@ -143,16 +143,15 @@ input {
 
 /* =====================================================
    ECOSISTEMA AERO
+   40 BURBUJAS + 8 PECES + 3 MEDUSAS
+   + GATOS + ERIZOS + PERRITOS
 ===================================================== */
 
 .ecosistema-aero {
     position: fixed;
     inset: 0;
-
     z-index: 2;
-
     overflow: hidden;
-
     pointer-events: none;
 }
 
@@ -163,14 +162,12 @@ input {
 
 .burbujas {
     position: absolute;
-
     inset: 0;
+    overflow: hidden;
 }
-
 
 .burbujas span {
     position: absolute;
-
     bottom: -140px;
 
     width: 40px;
@@ -180,29 +177,21 @@ input {
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.72
-        );
+        rgba(255, 255, 255, 0.75);
 
     background:
         radial-gradient(
-            circle at 28% 25%,
-            rgba(255,255,255,0.95),
-            rgba(170,235,255,0.18) 35%,
-            rgba(70,180,240,0.05) 70%
+            circle at 28% 24%,
+            rgba(255, 255, 255, 0.98),
+            rgba(200, 248, 255, 0.34) 20%,
+            rgba(95, 215, 255, 0.14) 45%,
+            rgba(30, 140, 220, 0.04) 72%
         );
 
     box-shadow:
-        inset 0 0 12px
-        rgba(
-            255,
-            255,
-            255,
-            0.65
-        );
+        inset 0 0 12px rgba(255, 255, 255, 0.65),
+        inset -6px -7px 12px rgba(20, 110, 190, 0.10),
+        0 4px 11px rgba(0, 90, 160, 0.13);
 
     opacity: 0;
 
@@ -213,6 +202,7 @@ input {
         infinite;
 }
 
+/* 1 - 10 */
 
 .burbujas span:nth-child(1) {
     left: 3%;
@@ -288,6 +278,8 @@ input {
     animation-delay: 12s;
 }
 
+/* 11 - 20 */
+
 .burbujas span:nth-child(11) {
     left: 60%;
     width: 80px;
@@ -359,6 +351,9 @@ input {
     height: 38px;
     animation-delay: 24s;
 }
+
+/* 21 - 30 */
+
 .burbujas span:nth-child(21) {
     left: 6%;
     width: 16px;
@@ -438,6 +433,8 @@ input {
     animation-delay: 25s;
     animation-duration: 29s;
 }
+
+/* 31 - 40 */
 
 .burbujas span:nth-child(31) {
     left: 63%;
@@ -520,62 +517,49 @@ input {
 }
 
 @keyframes burbujaSube {
-
     0% {
-        transform:
-            translateY(0)
-            translateX(0);
-
+        transform: translateY(0) translateX(0);
         opacity: 0;
     }
 
-    10% {
-        opacity: 0.65;
+    8% {
+        opacity: 0.72;
     }
 
-    50% {
-        transform:
-            translateY(-65vh)
-            translateX(30px);
+    30% {
+        transform: translateY(-35vh) translateX(18px);
     }
 
-    90% {
-        opacity: 0.5;
+    55% {
+        transform: translateY(-67vh) translateX(-12px);
+    }
+
+    82% {
+        opacity: 0.58;
     }
 
     100% {
-        transform:
-            translateY(-125vh)
-            translateX(-20px);
-
+        transform: translateY(-125vh) translateX(28px);
         opacity: 0;
     }
-
 }
 
 
 /* =====================================================
-   PECES CSS
+   PECES
 ===================================================== */
 
 .pez {
     position: absolute;
-
     display: flex;
-
     align-items: center;
 
-    opacity: 0.34;
+    opacity: 0.48;
 
     filter:
         drop-shadow(
             0 4px 8px
-            rgba(
-                0,
-                80,
-                130,
-                0.18
-            )
+            rgba(0, 80, 130, 0.18)
         );
 
     animation:
@@ -585,7 +569,6 @@ input {
         infinite;
 }
 
-
 .pez-cuerpo {
     position: relative;
 
@@ -594,12 +577,7 @@ input {
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.8
-        );
+        rgba(255, 255, 255, 0.85);
 
     border-radius:
         60% 50% 50% 60%;
@@ -607,20 +585,15 @@ input {
     background:
         linear-gradient(
             145deg,
-            rgba(190,250,255,0.85),
-            rgba(30,170,230,0.55)
+            rgba(210, 252, 255, 0.92),
+            rgba(70, 205, 245, 0.65),
+            rgba(10, 135, 215, 0.44)
         );
 
     box-shadow:
         inset 0 5px 8px
-        rgba(
-            255,
-            255,
-            255,
-            0.55
-        );
+        rgba(255, 255, 255, 0.62);
 }
-
 
 .pez-cola {
     width: 0;
@@ -634,14 +607,8 @@ input {
 
     border-right:
         28px solid
-        rgba(
-            70,
-            190,
-            235,
-            0.6
-        );
+        rgba(70, 190, 235, 0.68);
 }
-
 
 .pez-ojo {
     position: absolute;
@@ -658,96 +625,118 @@ input {
 
     box-shadow:
         0 0 0 2px
-        rgba(
-            255,
-            255,
-            255,
-            0.75
-        );
+        rgba(255, 255, 255, 0.78);
 }
-
 
 .pez-invertido {
-    transform: scaleX(-1);
-
-    animation-name:
-        pezIzquierda;
+    animation-name: pezIzquierda;
 }
 
+/* Peces 1 - 8 */
 
 .pez-1 {
-    top: 23%;
-    left: -150px;
-
+    top: 18%;
+    left: -180px;
     animation-delay: -6s;
 }
 
 .pez-2 {
-    top: 58%;
-    left: -150px;
-
-    transform: scale(0.7);
-
+    top: 35%;
+    left: -180px;
+    transform: scale(0.72);
     animation-delay: -19s;
     animation-duration: 39s;
 }
 
 .pez-3 {
-    top: 38%;
-    right: -150px;
-
+    top: 49%;
+    right: -180px;
+    transform: scaleX(-1);
+    animation-name: pezIzquierda;
     animation-delay: -12s;
     animation-duration: 35s;
 }
 
 .pez-4 {
-    top: 78%;
-    left: -150px;
-
-    transform: scale(0.5);
-
+    top: 69%;
+    left: -180px;
+    transform: scale(0.52);
     animation-delay: -27s;
     animation-duration: 42s;
 }
 
+.pez-5 {
+    top: 12%;
+    left: -180px;
+    transform: scale(0.44);
+    animation-delay: -23s;
+    animation-duration: 29s;
+}
+
+.pez-6 {
+    top: 61%;
+    right: -180px;
+    transform: scaleX(-1) scale(0.65);
+    animation-name: pezIzquierda;
+    animation-delay: -17s;
+    animation-duration: 44s;
+}
+
+.pez-7 {
+    top: 84%;
+    left: -180px;
+    transform: scale(0.83);
+    animation-delay: -31s;
+    animation-duration: 47s;
+}
+
+.pez-8 {
+    top: 28%;
+    right: -180px;
+    transform: scaleX(-1) scale(0.38);
+    animation-name: pezIzquierda;
+    animation-delay: -9s;
+    animation-duration: 33s;
+}
 
 @keyframes pezDerecha {
+    0% {
+        translate: -200px 0;
+    }
 
-    from {
-        translate:
-            -180px
-            0;
+    25% {
+        translate: 25vw -12px;
     }
 
     50% {
-        translate:
-            55vw
-            20px;
+        translate: 55vw 18px;
     }
 
-    to {
-        translate:
-            calc(100vw + 250px)
-            -20px;
+    75% {
+        translate: 80vw -7px;
     }
 
+    100% {
+        translate: calc(100vw + 260px) 8px;
+    }
 }
 
-
 @keyframes pezIzquierda {
-
-    from {
-        translate:
-            180px
-            0;
+    0% {
+        translate: 200px 0;
     }
 
-    to {
-        translate:
-            calc(-100vw - 250px)
-            30px;
+    30% {
+        translate: -30vw 15px;
     }
 
+    65% {
+        translate: -70vw -10px;
+    }
+
+    100% {
+        translate: calc(-100vw - 260px) 15px;
+    }
 }
 
 
@@ -761,7 +750,7 @@ input {
     width: 70px;
     height: 115px;
 
-    opacity: 0.28;
+    opacity: 0.34;
 
     animation:
         medusaSube
@@ -770,19 +759,13 @@ input {
         infinite;
 }
 
-
 .medusa-cabeza {
     width: 70px;
     height: 48px;
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.75
-        );
+        rgba(255, 255, 255, 0.75);
 
     border-radius:
         50px 50px 15px 15px;
@@ -790,31 +773,21 @@ input {
     background:
         radial-gradient(
             circle at 35% 25%,
-            rgba(255,255,255,0.9),
-            rgba(120,220,255,0.48),
-            rgba(70,130,220,0.18)
+            rgba(255, 255, 255, 0.92),
+            rgba(120, 220, 255, 0.55),
+            rgba(70, 130, 220, 0.20)
         );
 
     box-shadow:
         inset 0 6px 10px
-        rgba(
-            255,
-            255,
-            255,
-            0.5
-        );
+        rgba(255, 255, 255, 0.5);
 }
-
 
 .tentaculos {
     display: flex;
-
-    justify-content:
-        space-evenly;
-
+    justify-content: space-evenly;
     height: 65px;
 }
-
 
 .tentaculos span {
     width: 5px;
@@ -826,8 +799,8 @@ input {
     background:
         linear-gradient(
             to bottom,
-            rgba(120,220,255,0.55),
-            rgba(70,140,220,0.08)
+            rgba(120, 220, 255, 0.58),
+            rgba(70, 140, 220, 0.08)
         );
 
     animation:
@@ -837,7 +810,6 @@ input {
         infinite
         alternate;
 }
-
 
 .tentaculos span:nth-child(2) {
     animation-delay: -0.8s;
@@ -851,9 +823,29 @@ input {
     animation-delay: -0.3s;
 }
 
+.medusa-1 {
+    left: 12%;
+    bottom: -160px;
+    animation-delay: -10s;
+}
+
+.medusa-2 {
+    left: 62%;
+    bottom: -170px;
+    transform: scale(0.7);
+    animation-delay: -22s;
+    animation-duration: 36s;
+}
+
+.medusa-3 {
+    left: 88%;
+    bottom: -150px;
+    transform: scale(0.45);
+    animation-delay: -5s;
+    animation-duration: 25s;
+}
 
 @keyframes tentaculo {
-
     from {
         transform:
             translateX(-4px)
@@ -865,61 +857,207 @@ input {
             translateX(4px)
             rotate(5deg);
     }
-
 }
-
-
-.medusa-1 {
-    left: 12%;
-    bottom: -150px;
-
-    animation-delay: -10s;
-}
-
-
-.medusa-2 {
-    left: 62%;
-    bottom: -170px;
-
-    transform: scale(0.7);
-
-    animation-delay: -22s;
-    animation-duration: 36s;
-}
-
-
-.medusa-3 {
-    left: 88%;
-    bottom: -150px;
-
-    transform: scale(0.45);
-
-    animation-delay: -5s;
-    animation-duration: 25s;
-}
-
 
 @keyframes medusaSube {
+    0% {
+        translate: 0 160px;
+    }
 
-    from {
-        translate:
-            0
-            140px;
+    25% {
+        translate: 17px -25vh;
     }
 
     50% {
-        translate:
-            25px
-            -55vh;
+        translate: -10px -55vh;
     }
 
-    to {
-        translate:
-            -20px
-            -125vh;
+    75% {
+        translate: 20px -85vh;
     }
 
+    100% {
+        translate: -15px -125vh;
+    }
 }
+
+
+/* =====================================================
+   GATOS + ERIZOS + PERRITOS
+===================================================== */
+
+.animal {
+    position: absolute;
+
+    font-size: 43px;
+
+    opacity: 0.48;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 4px 6px
+            rgba(0, 70, 120, 0.25)
+        );
+
+    animation:
+        animalDerecha
+        35s
+        linear
+        infinite;
+}
+
+/* Gatos */
+
+.gato-1 {
+    top: 15%;
+    left: -100px;
+    animation-delay: -8s;
+    animation-duration: 38s;
+}
+
+.gato-2 {
+    top: 72%;
+    right: -100px;
+    transform: scaleX(-1) scale(0.72);
+    animation-name: animalIzquierda;
+    animation-delay: -21s;
+    animation-duration: 46s;
+}
+
+.gato-3 {
+    top: 43%;
+    left: -100px;
+    transform: scale(0.58);
+    animation-delay: -30s;
+    animation-duration: 49s;
+}
+
+/* Erizos */
+
+.erizo-1 {
+    top: 24%;
+    right: -100px;
+    transform: scaleX(-1) scale(0.66);
+    animation-name: animalIzquierda;
+    animation-delay: -13s;
+    animation-duration: 39s;
+}
+
+.erizo-2 {
+    top: 81%;
+    left: -100px;
+    transform: scale(0.82);
+    animation-delay: -27s;
+    animation-duration: 45s;
+}
+
+.erizo-3 {
+    top: 54%;
+    right: -100px;
+    transform: scaleX(-1) scale(0.48);
+    animation-name: animalIzquierda;
+    animation-delay: -5s;
+    animation-duration: 52s;
+}
+
+/* Perritos */
+
+.perro-1 {
+    top: 10%;
+    right: -100px;
+    transform: scaleX(-1) scale(0.64);
+    animation-name: animalIzquierda;
+    animation-delay: -19s;
+    animation-duration: 43s;
+}
+
+.perro-2 {
+    top: 66%;
+    left: -100px;
+    transform: scale(0.74);
+    animation-delay: -11s;
+    animation-duration: 48s;
+}
+
+.perro-3 {
+    top: 35%;
+    right: -100px;
+    transform: scaleX(-1) scale(0.50);
+    animation-name: animalIzquierda;
+    animation-delay: -34s;
+    animation-duration: 55s;
+}
+
+.perro-4 {
+    top: 90%;
+    left: -100px;
+    transform: scale(0.58);
+    animation-delay: -25s;
+    animation-duration: 51s;
+}
+
+@keyframes animalDerecha {
+    0% {
+        translate: -120px 0;
+        rotate: -3deg;
+    }
+
+    20% {
+        translate: 20vw -10px;
+        rotate: 2deg;
+    }
+
+    40% {
+        translate: 42vw 13px;
+        rotate: -2deg;
+    }
+
+    60% {
+        translate: 64vw -5px;
+        rotate: 2deg;
+    }
+
+    80% {
+        translate: 85vw 11px;
+        rotate: -1deg;
+    }
+
+    100% {
+        translate: calc(100vw + 150px) 0;
+        rotate: 2deg;
+    }
+}
+
+@keyframes animalIzquierda {
+    0% {
+        translate: 120px 0;
+        rotate: 2deg;
+    }
+
+    25% {
+        translate: -25vw 10px;
+        rotate: -2deg;
+    }
+
+    50% {
+        translate: -52vw -8px;
+        rotate: 2deg;
+    }
+
+    75% {
+        translate: -78vw 9px;
+        rotate: -2deg;
+    }
+
+    100% {
+        translate: calc(-100vw - 150px) 0;
+        rotate: 2deg;
+    }
+}
+
+
 
 
 /* =====================================================
