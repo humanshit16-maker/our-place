@@ -1,87 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#65cfff">
 
-    <title>DyF 💗 </title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="theme-color"
+        content="#65cfff"
+    >
+
+    <title>DyF 💗</title>
+
+    <!-- =========================================
+         FAVICON DE BURBUJA
+         No necesita imagen externa
+    ========================================== -->
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,
+        %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E
+        %3Cdefs%3E
+        %3CradialGradient id='b' cx='30%25' cy='25%25' r='70%25'%3E
+        %3Cstop offset='0' stop-color='%23ffffff' stop-opacity='0.95'/%3E
+        %3Cstop offset='0.25' stop-color='%238beaff' stop-opacity='0.75'/%3E
+        %3Cstop offset='0.65' stop-color='%232aa9f4' stop-opacity='0.35'/%3E
+        %3Cstop offset='1' stop-color='%230b6db8' stop-opacity='0.15'/%3E
+        %3C/radialGradient%3E
+        %3C/defs%3E
+        %3Ccircle cx='32' cy='32' r='27' fill='url(%23b)' stroke='%23dffaff' stroke-width='3'/%3E
+        %3Cellipse cx='23' cy='20' rx='7' ry='4' fill='%23ffffff' fill-opacity='0.8'/%3E
+        %3C/svg%3E"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
 
 <body>
 
-    <!-- =========================
-         FONDO PERSONAL
-    ========================== -->
+    <!-- =========================================
+         FONDO
+    ========================================== -->
+
     <div id="fondoPrincipal"></div>
+
     <div class="capa-fondo"></div>
 
 
-    <!-- =========================
-         BURBUJAS FRUTIGER AERO
-    ========================== -->
-    <div class="burbujas" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- =========================================
+         ECOSISTEMA AERO
+         Decoración solamente
+    ========================================== -->
+
+    <div
+        class="ecosistema-aero"
+        aria-hidden="true"
+    >
+
+        <!-- BURBUJAS -->
+
+        <div class="burbujas">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- PECES -->
+
+        <div class="pez pez-1">
+            <div class="pez-cola"></div>
+            <div class="pez-cuerpo">
+                <span class="pez-ojo"></span>
+            </div>
+        </div>
+
+
+        <div class="pez pez-2">
+            <div class="pez-cola"></div>
+            <div class="pez-cuerpo">
+                <span class="pez-ojo"></span>
+            </div>
+        </div>
+
+
+        <div class="pez pez-3 pez-invertido">
+            <div class="pez-cola"></div>
+            <div class="pez-cuerpo">
+                <span class="pez-ojo"></span>
+            </div>
+        </div>
+
+
+        <div class="pez pez-4">
+            <div class="pez-cola"></div>
+            <div class="pez-cuerpo">
+                <span class="pez-ojo"></span>
+            </div>
+        </div>
+
+
+        <!-- MEDUSAS -->
+
+        <div class="medusa medusa-1">
+
+            <div class="medusa-cabeza"></div>
+
+            <div class="tentaculos">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+
+        <div class="medusa medusa-2">
+
+            <div class="medusa-cabeza"></div>
+
+            <div class="tentaculos">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+
+        <div class="medusa medusa-3">
+
+            <div class="medusa-cabeza"></div>
+
+            <div class="tentaculos">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
     </div>
 
 
-    <!-- =========================
+    <!-- =========================================
          PANTALLA DE ENTRADA
-    ========================== -->
-    <div id="pantallaEntrada" class="pantalla-entrada">
+    ========================================== -->
+
+    <div
+        id="pantallaEntrada"
+        class="pantalla-entrada"
+    >
 
         <div class="entrada-nube entrada-nube-1"></div>
         <div class="entrada-nube entrada-nube-2"></div>
 
+
         <div class="entrada-contenido">
-            <div class="entrada-icono">🌎💗</div>
+
+            <div class="entrada-icono">
+                🫧🌎💗
+            </div>
+
 
             <p class="texto-pequeno">
                 BIENVENIDA A
             </p>
 
-            <h1>Nuestro Lugar</h1>
+
+            <h1>
+                Nuestro Lugar
+            </h1>
+
 
             <p class="entrada-descripcion">
-                Un pequeño rincón de internet hecho para nosotros dos, Princesa 💗
+                Un pequeño rincón de internet hecho para nosotros dos,
+                Princesa 💗
             </p>
 
-            <button id="botonEntrar" class="boton boton-grande">
+
+            <button
+                id="botonEntrar"
+                class="boton boton-grande"
+            >
                 🌿 Entrar
             </button>
+
 
             <small>
                 Activa también nuestra música de fondo ♫
             </small>
+
         </div>
+
     </div>
 
 
-    <!-- =========================
+    <!-- =========================================
          NAVEGACIÓN
-    ========================== -->
+    ========================================== -->
+
     <header class="barra">
 
-        <a href="#inicio" class="logo">
+        <a
+            href="#inicio"
+            class="logo"
+        >
             🌎 Our place 💗
         </a>
 
+
         <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#frase">Frasesitas</a>
-            <a href="#roblox">Robloxito</a>
-            <a href="#preguntas">Preguntillas</a>
-            <a href="#hacemos">¿Qué hacemos?</a>
-            <a href="#musica">Músiquilla</a>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#frase">
+                Frasesitas
+            </a>
+
+            <a href="#roblox">
+                Robloxito
+            </a>
+
+            <a href="#preguntas">
+                Preguntillas
+            </a>
+
+            <a href="#hacemos">
+                ¿Qué hacemos?
+            </a>
+
+            <a href="#musica">
+                Músiquilla
+            </a>
+
+            <a href="#calendario">
+                Calendario
+            </a>
+
         </nav>
 
     </header>
@@ -89,22 +281,40 @@
 
     <main>
 
-        <!-- =========================
+        <!-- =========================================
              INICIO
-        ========================== -->
-        <section id="inicio" class="hero">
+        ========================================== -->
+
+        <section
+            id="inicio"
+            class="hero"
+        >
 
             <div class="nube nube-1"></div>
             <div class="nube nube-2"></div>
             <div class="nube nube-3"></div>
 
 
-            <div class="ventana-decorativa hero-foto hero-foto-izquierda">
+            <div
+                class="
+                    ventana-decorativa
+                    hero-foto
+                    hero-foto-izquierda
+                "
+            >
 
                 <div class="barra-ventana">
-                    <span>♡ tu y yo esos rial</span>
-                    <span>— □ ×</span>
+
+                    <span>
+                        ♡ tu y yo esos rial
+                    </span>
+
+                    <span>
+                        — □ ×
+                    </span>
+
                 </div>
+
 
                 <img
                     src="decoracion/decoracion1.jfif"
@@ -120,10 +330,15 @@
                     NUESTRO LUGARCITO DE LOS DOS
                 </p>
 
-                <h1>DyF</h1>
+
+                <h1>
+                    DyF
+                </h1>
+
 
                 <p class="hero-descripcion">
-                    Aunque haya distancia, tenemos nuestro propio lugarsillo
+                    Aunque haya distancia,
+                    tenemos nuestro propio lugarsillo
                 </p>
 
 
@@ -133,9 +348,11 @@
                         💗 Llevamos juntos 💗
                     </span>
 
+
                     <strong id="diasJuntos">
                         Calculando...
                     </strong>
+
 
                     <small>
                         Desde el 17 de noviembre de 2025
@@ -146,16 +363,30 @@
             </div>
 
 
-            <div class="ventana-decorativa hero-foto hero-foto-derecha">
+            <div
+                class="
+                    ventana-decorativa
+                    hero-foto
+                    hero-foto-derecha
+                "
+            >
 
                 <div class="barra-ventana">
-                    <span>✿ recuerdito de Mc</span>
-                    <span>— □ ×</span>
+
+                    <span>
+                        ✿ recuerdito de Mc
+                    </span>
+
+                    <span>
+                        — □ ×
+                    </span>
+
                 </div>
+
 
                 <img
                     src="decoracion/decoracion2.png"
-                    alt="decoración2"
+                    alt="Decoración 2"
                 >
 
             </div>
@@ -163,18 +394,31 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              FRASE DEL DÍA
-        ========================== -->
-        <section id="frase" class="seccion">
+        ========================================== -->
+
+        <section
+            id="frase"
+            class="seccion"
+        >
 
             <div class="titulo-seccion">
 
-                <span class="icono-seccion">🌼</span>
+                <span class="icono-seccion">
+                    🌼
+                </span>
 
                 <div>
-                    <p class="texto-pequeno">ALGO PARA HOY</p>
-                    <h2>Frase del día</h2>
+
+                    <p class="texto-pequeno">
+                        ALGO PARA HOY
+                    </p>
+
+                    <h2>
+                        Frase del día
+                    </h2>
+
                 </div>
 
             </div>
@@ -188,11 +432,16 @@
                         ✨ HOY
                     </span>
 
+
                     <p id="fraseTexto">
                         Cargando frase...
                     </p>
 
-                    <button id="cambiarFrase" class="boton">
+
+                    <button
+                        id="cambiarFrase"
+                        class="boton"
+                    >
                         ✨ Otra frase
                     </button>
 
@@ -202,13 +451,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>momento en Om</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            momento en Om
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion3.jpeg"
-                        alt="decoración3"
+                        alt="Decoración 3"
                         loading="lazy"
                     >
 
@@ -219,21 +476,31 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              ROBLOX
-        ========================== -->
-        <section id="roblox" class="seccion">
+        ========================================== -->
+
+        <section
+            id="roblox"
+            class="seccion"
+        >
 
             <div class="titulo-seccion">
 
-                <span class="icono-seccion">🎮</span>
+                <span class="icono-seccion">
+                    🎮
+                </span>
 
                 <div>
+
                     <p class="texto-pequeno">
                         CUANDO NO SABEMOS QUÉ JUGAR
                     </p>
 
-                    <h2>¿Qué jugamos hoy?</h2>
+                    <h2>
+                        ¿Qué jugamos hoy?
+                    </h2>
+
                 </div>
 
             </div>
@@ -246,6 +513,7 @@
                     <label for="categoriaRoblox">
                         Elige el tipo de juego:
                     </label>
+
 
                     <select id="categoriaRoblox">
 
@@ -262,7 +530,7 @@
                         </option>
 
                         <option value="parejas">
-                            ❤️ Para jugar juntos
+                            💗 Para jugar juntos
                         </option>
 
                         <option value="accion">
@@ -291,21 +559,33 @@
 
                     </select>
 
-                    <button id="elegirJuego" class="boton boton-grande">
+
+                    <button
+                        id="elegirJuego"
+                        class="boton boton-grande"
+                    >
                         🎲 Elegir por nosotros
                     </button>
 
                 </div>
 
 
-                <div id="resultadoJuego" class="panel resultado-juego">
+                <div
+                    id="resultadoJuego"
+                    class="panel resultado-juego"
+                >
 
-                    <span class="emoji-grande">🎮</span>
+                    <span class="emoji-grande">
+                        🎮
+                    </span>
 
-                    <h3>¿Qué tocará?</h3>
+                    <h3>
+                        ¿Qué tocará?
+                    </h3>
 
                     <p>
-                        Elige una categoría y deja que la página decida.
+                        Elige una categoría y deja
+                        que la página decida.
                     </p>
 
                 </div>
@@ -318,13 +598,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>us en anime</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            us en anime
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion4.jpeg"
-                        alt="decoración4"
+                        alt="Decoración 4"
                         loading="lazy"
                     >
 
@@ -334,13 +622,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>us en shoni</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            us en shoni
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion5.jpg"
-                        alt="decoración5"
+                        alt="Decoración 5"
                         loading="lazy"
                     >
 
@@ -351,21 +647,31 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              PREGUNTAS
-        ========================== -->
-        <section id="preguntas" class="seccion">
+        ========================================== -->
+
+        <section
+            id="preguntas"
+            class="seccion"
+        >
 
             <div class="titulo-seccion">
 
-                <span class="icono-seccion">💭</span>
+                <span class="icono-seccion">
+                    💭
+                </span>
 
                 <div>
+
                     <p class="texto-pequeno">
                         PARA HABLAR DE TODO
                     </p>
 
-                    <h2>Preguntas para nosotros</h2>
+                    <h2>
+                        Preguntas para nosotros
+                    </h2>
+
                 </div>
 
             </div>
@@ -373,15 +679,23 @@
 
             <div class="panel pregunta-panel">
 
-                <span id="categoriaPreguntaActual" class="mini-etiqueta">
+                <span
+                    id="categoriaPreguntaActual"
+                    class="mini-etiqueta"
+                >
                     💭 GENERAL
                 </span>
+
 
                 <p id="preguntaTexto">
                     Presiona un botón y veamos qué nos toca.
                 </p>
 
-                <button id="preguntaGeneral" class="boton boton-grande">
+
+                <button
+                    id="preguntaGeneral"
+                    class="boton boton-grande"
+                >
                     💭 Pregunta general
                 </button>
 
@@ -390,39 +704,71 @@
 
             <div class="categorias-preguntas">
 
-                <button class="boton" data-pregunta="tiernas">
+                <button
+                    class="boton"
+                    data-pregunta="tiernas"
+                >
                     💗 Tiernas
                 </button>
 
-                <button class="boton" data-pregunta="graciosas">
+
+                <button
+                    class="boton"
+                    data-pregunta="graciosas"
+                >
                     😂 Graciosillas
                 </button>
 
-                <button class="boton" data-pregunta="profundas">
+
+                <button
+                    class="boton"
+                    data-pregunta="profundas"
+                >
                     🧠 Profundas
                 </button>
 
-                <button class="boton" data-pregunta="futuro">
+
+                <button
+                    class="boton"
+                    data-pregunta="futuro"
+                >
                     🌎 Futuro
                 </button>
 
-                <button class="boton" data-pregunta="random">
+
+                <button
+                    class="boton"
+                    data-pregunta="random"
+                >
                     🎲 Random
                 </button>
 
             </div>
 
 
-            <div class="ventana-decorativa decoracion-horizontal">
+            <div
+                class="
+                    ventana-decorativa
+                    decoracion-horizontal
+                "
+            >
 
                 <div class="barra-ventana">
-                    <span>Us pero ahora de bebes jsjsjs me pashe me pashe</span>
-                    <span>— □ ×</span>
+
+                    <span>
+                        Us pero ahora de bebes jsjsjs me pashe me pashe
+                    </span>
+
+                    <span>
+                        — □ ×
+                    </span>
+
                 </div>
+
 
                 <img
                     src="decoracion/decoracion6.jpeg"
-                    alt="decoración6"
+                    alt="Decoración 6"
                     loading="lazy"
                 >
 
@@ -431,21 +777,31 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              QUÉ HACEMOS
-        ========================== -->
-        <section id="hacemos" class="seccion">
+        ========================================== -->
+
+        <section
+            id="hacemos"
+            class="seccion"
+        >
 
             <div class="titulo-seccion">
 
-                <span class="icono-seccion">🎲</span>
+                <span class="icono-seccion">
+                    🎲
+                </span>
 
                 <div>
+
                     <p class="texto-pequeno">
                         EL CLÁSICO "NO SÉ, TÚ ELIGE"
                     </p>
 
-                    <h2>¿Qué hacemos?</h2>
+                    <h2>
+                        ¿Qué hacemos?
+                    </h2>
+
                 </div>
 
             </div>
@@ -455,13 +811,20 @@
 
                 <div class="panel actividad-panel">
 
-                    <span class="emoji-grande">🌈</span>
+                    <span class="emoji-grande">
+                        🌈
+                    </span>
+
 
                     <p id="actividadTexto">
                         Dejemos que el azar decida.
                     </p>
 
-                    <button id="elegirActividad" class="boton boton-grande">
+
+                    <button
+                        id="elegirActividad"
+                        class="boton boton-grande"
+                    >
                         🎲 Decidir por nosotros
                     </button>
 
@@ -471,13 +834,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>el dia que fuimos gatillos</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            el dia que fuimos gatillos
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion7.jpeg"
-                        alt="decoración7"
+                        alt="Decoración 7"
                         loading="lazy"
                     >
 
@@ -488,21 +859,31 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              MÚSICA
-        ========================== -->
-        <section id="musica" class="seccion">
+        ========================================== -->
+
+        <section
+            id="musica"
+            class="seccion"
+        >
 
             <div class="titulo-seccion">
 
-                <span class="icono-seccion">🎵</span>
+                <span class="icono-seccion">
+                    🎵
+                </span>
 
                 <div>
+
                     <p class="texto-pequeno">
                         NUESTRO REPRODUCTOR
                     </p>
 
-                    <h2>Nuestra música</h2>
+                    <h2>
+                        Nuestra música
+                    </h2>
+
                 </div>
 
             </div>
@@ -511,6 +892,7 @@
             <div class="musica-layout">
 
                 <!-- REPRODUCTOR -->
+
                 <div class="panel reproductor">
 
                     <div class="pantalla-reproductor">
@@ -519,9 +901,11 @@
                             🌿 Ambiente
                         </span>
 
+
                         <h3 id="tituloCancion">
                             Música ambiental
                         </h3>
+
 
                         <p id="numeroCancion">
                             ♫
@@ -555,24 +939,68 @@
 
                     <div class="controles-musica">
 
-                        <button id="anteriorCancion" class="boton boton-circular">
+                        <button
+                            id="anteriorCancion"
+                            class="boton boton-circular"
+                            aria-label="Canción anterior"
+                        >
                             ⏮
                         </button>
 
-                        <button id="playCancion" class="boton boton-circular play-principal">
+
+                        <button
+                            id="playCancion"
+                            class="
+                                boton
+                                boton-circular
+                                play-principal
+                            "
+                            aria-label="Reproducir o pausar"
+                        >
                             ▶
                         </button>
 
-                        <button id="siguienteCancion" class="boton boton-circular">
+
+                        <button
+                            id="siguienteCancion"
+                            class="boton boton-circular"
+                            aria-label="Canción siguiente"
+                        >
                             ⏭
+                        </button>
+
+
+                        <!-- NUEVO LOOP -->
+
+                        <button
+                            id="loopCancion"
+                            class="
+                                boton
+                                boton-circular
+                                boton-loop
+                            "
+                            aria-label="Repetir canción"
+                            title="Repetir canción"
+                        >
+                            🔁
                         </button>
 
                     </div>
 
 
+                    <div
+                        id="estadoLoop"
+                        class="estado-loop"
+                    >
+                        Loop desactivado
+                    </div>
+
+
                     <div class="volumen">
 
-                        <span>🔉</span>
+                        <span>
+                            🔉
+                        </span>
 
                         <input
                             type="range"
@@ -583,12 +1011,17 @@
                             value="0.7"
                         >
 
-                        <span>🔊</span>
+                        <span>
+                            🔊
+                        </span>
 
                     </div>
 
 
-                    <button id="volverAmbiente" class="boton boton-verde">
+                    <button
+                        id="volverAmbiente"
+                        class="boton boton-verde"
+                    >
                         🌿 Volver a música de fondo
                     </button>
 
@@ -596,27 +1029,40 @@
 
 
                 <!-- PLAYLIST -->
+
                 <div class="panel playlist-panel">
 
                     <div class="playlist-cabecera">
 
                         <div>
+
                             <p class="texto-pequeno">
                                 NUESTRAS CANCIONES
                             </p>
 
-                            <h3>🎧 Playlist</h3>
+                            <h3>
+                                🎧 Playlist
+                            </h3>
+
                         </div>
 
-                        <span>30 ♫</span>
+
+                        <span>
+                            30 ♫
+                        </span>
 
                     </div>
+
 
                     <p>
                         Elige cualquiera de las canciones.
                     </p>
 
-                    <div id="listaCanciones" class="lista-canciones">
+
+                    <div
+                        id="listaCanciones"
+                        class="lista-canciones"
+                    >
                     </div>
 
                 </div>
@@ -629,13 +1075,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>bombon todos los dias esta pensando en ti</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            bombon todos los dias esta pensando en ti
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion8.jpeg"
-                        alt="decoración8"
+                        alt="Decoración 8"
                         loading="lazy"
                     >
 
@@ -645,13 +1099,21 @@
                 <div class="ventana-decorativa">
 
                     <div class="barra-ventana">
-                        <span>Melissa siempre va a estar contigo</span>
-                        <span>— □ ×</span>
+
+                        <span>
+                            Melissa siempre va a estar contigo
+                        </span>
+
+                        <span>
+                            — □ ×
+                        </span>
+
                     </div>
+
 
                     <img
                         src="decoracion/decoracion9.jpeg"
-                        alt="decoración9"
+                        alt="Decoración 9"
                         loading="lazy"
                     >
 
@@ -662,17 +1124,374 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
+             INICIO DE LAS NUEVAS SECCIONES
+             FRUTIGER AERO ACUÁTICO + WEBCORE
+        ================================================== -->
+
+
+        <!-- =========================================
+             SEPARADOR ACUÁTICO
+        ========================================== -->
+
+        <section class="portal-acuatico">
+
+            <div class="portal-linea"></div>
+
+
+            <div class="portal-centro">
+
+                <span class="portal-burbuja">
+                    🫧
+                </span>
+
+                <p>
+                    entering deeper waters...
+                </p>
+
+                <strong>
+                    DyF Aqua System
+                </strong>
+
+                <small>
+                    connection status: online ●
+                </small>
+
+            </div>
+
+
+            <div class="portal-linea"></div>
+
+        </section>
+
+
+        <!-- =========================================
+             WIDGET WEBCORE
+        ========================================== -->
+
+        <section class="webcore-zona">
+
+            <div class="webcore-ventana">
+
+                <div class="webcore-titlebar">
+
+                    <span>
+                        🌐 DyF_Aqua.exe
+                    </span>
+
+
+                    <div class="webcore-controles">
+
+                        <span>
+                            _
+                        </span>
+
+                        <span>
+                            □
+                        </span>
+
+                        <span>
+                            ×
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="webcore-contenido">
+
+                    <div class="webcore-globo">
+
+                        <div class="globo-brillo"></div>
+
+                        <span>
+                            🌎
+                        </span>
+
+                    </div>
+
+
+                    <div class="webcore-info">
+
+                        <p class="webcore-mini">
+                            CONNECTION INFORMATION
+                        </p>
+
+
+                        <h2>
+                            Our Place Network
+                        </h2>
+
+
+                        <div class="status-linea">
+
+                            <span>
+                                ●
+                            </span>
+
+                            ONLINE
+
+                        </div>
+
+
+                        <p>
+                            Dos personas, dos países,
+                            un mismo lugarcito en internet.
+                        </p>
+
+
+                        <div class="webcore-datos">
+
+                            <div>
+
+                                <small>
+                                    SYSTEM
+                                </small>
+
+                                <strong>
+                                    DyF
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    SINCE
+                                </small>
+
+                                <strong>
+                                    17.11.2025
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    STATUS
+                                </small>
+
+                                <strong>
+                                    CONNECTED
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="webcore-footer">
+
+                    <span>
+                        Internet Connection
+                    </span>
+
+                    <span>
+                        100%
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CALENDARIO
+        ========================================== -->
+
+        <section
+            id="calendario"
+            class="aqua-seccion"
+        >
+
+            <div class="aqua-encabezado">
+
+                <div class="aqua-icono">
+                    📅
+                </div>
+
+
+                <div>
+
+                    <p>
+                        DyF CALENDAR 2007
+                    </p>
+
+                    <h2>
+                        Nuestro calendario
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="calendario-ventana">
+
+                <div class="calendario-titlebar">
+
+                    <span>
+                        📆 important_dates.exe
+                    </span>
+
+                    <span>
+                        _ □ ×
+                    </span>
+
+                </div>
+
+
+                <div class="calendario-toolbar">
+
+                    <button
+                        id="mesAnterior"
+                        class="aqua-boton"
+                    >
+                        ◀
+                    </button>
+
+
+                    <h3 id="tituloMes">
+                        Mes
+                    </h3>
+
+
+                    <button
+                        id="mesSiguiente"
+                        class="aqua-boton"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <div class="dias-semana">
+
+                    <span>
+                        Lun
+                    </span>
+
+                    <span>
+                        Mar
+                    </span>
+
+                    <span>
+                        Mié
+                    </span>
+
+                    <span>
+                        Jue
+                    </span>
+
+                    <span>
+                        Vie
+                    </span>
+
+                    <span>
+                        Sáb
+                    </span>
+
+                    <span>
+                        Dom
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="calendarioDias"
+                    class="calendario-dias"
+                >
+                </div>
+
+
+                <div
+                    id="eventoCalendario"
+                    class="evento-calendario"
+                >
+
+                    <div class="evento-icono">
+                        🫧
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            SELECTED DATE
+                        </small>
+
+                        <strong>
+                            Selecciona una fecha marcada
+                        </strong>
+
+                        <p>
+                            Aquí aparecerá lo importante
+                            de ese día.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="calendario-leyenda">
+
+                <span>
+                    💗 Fecha especial
+                </span>
+
+                <span>
+                    🌎 Aniversario
+                </span>
+
+                <span>
+                    🫧 Recuerdo
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
              FINAL
-        ========================== -->
+        ========================================== -->
+
         <section class="final">
 
-            <div class="ventana-decorativa final-imagen">
+            <div
+                class="
+                    ventana-decorativa
+                    final-imagen
+                "
+            >
 
                 <div class="barra-ventana">
-                    <span>Muamua</span>
-                    <span>— □ ×</span>
+
+                    <span>
+                        Muamua
+                    </span>
+
+                    <span>
+                        — □ ×
+                    </span>
+
                 </div>
+
 
                 <img
                     src="decoracion/decoracion10.jpg"
@@ -682,12 +1501,16 @@
 
             </div>
 
+
             <h2>
-                Nuestro pequeño lugar, mi amor 🌎💗
+                Nuestro pequeño lugar,
+                mi amor 🌎💗
             </h2>
 
+
             <p>
-                Y todavía le faltan algunas cositas que le agregare proximamente 
+                Y todavía le faltan algunas cositas
+                que le agregaré próximamente.
             </p>
 
         </section>
@@ -703,4 +1526,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
