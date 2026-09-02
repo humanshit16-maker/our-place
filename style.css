@@ -1830,4 +1830,102 @@ footer {
         opacity: 0.55;
     }
 
+/* =========================================
+   MÁS TRANSPARENCIA EN LA INTERFAZ ACTUAL
+========================================= */
+
+/* Secciones grandes */
+.seccion {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(235, 252, 255, 0.55),
+            rgba(255, 255, 255, 0.38)
+        );
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Paneles internos */
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.58),
+            rgba(202, 244, 255, 0.35)
+        );
+
+    backdrop-filter: blur(9px);
+}
+
+
+/* Contador */
+.contador-panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.60),
+            rgba(214, 249, 255, 0.38)
+        );
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Barra superior */
+.barra {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.62),
+            rgba(194, 239, 255, 0.40)
+        );
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* Ventanitas decorativas */
+.ventana-decorativa {
+    background:
+        rgba(220, 248, 255, 0.42);
+
+    backdrop-filter: blur(7px);
+}
+
+
+/* Playlist */
+.cancion-item {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.65),
+            rgba(196, 240, 255, 0.42)
+        );
+}
+
+
+/* Pantalla verde del reproductor */
+.pantalla-reproductor {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(224, 255, 189, 0.65),
+            rgba(148, 233, 138, 0.48)
+        );
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* Footer */
+footer {
+    background:
+        linear-gradient(
+            rgba(233, 252, 255, 0.62),
+            rgba(171, 239, 255, 0.44)
+        );
+
+    backdrop-filter: blur(10px);
 }
